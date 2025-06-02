@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a2178f736a3c86a1354c08ce86969f63 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<div style="
+    position: fixed; 
+    bottom: 50px; left: 50px; width: 200px; height: 280px; 
+    background-color: white; z-index:9999; font-size:14px;
+    border:2px solid grey; padding: 10px;">
+    <b>Map's key</b><br>
+    <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+        <div style="display: flex; align-items: center;">
+            <i class="fa fa-map-marker fa-lg" style="color:red; margin-right:8px;"></i> Assassination
+        </div>
+        <div style="display: flex; align-items: center;">
+            <i class="fa fa-map-marker fa-lg" style="color:blue; margin-right:8px;"></i> Sabotage preparation/attempt
+        </div>
+        <div style="display: flex; align-items: center;">
+            <i class="fa fa-map-marker fa-lg" style="color:green; margin-right:8px;"></i> Vandalism
+        </div>
+        <div style="display: flex; align-items: center;">
+            <i class="fa fa-map-marker fa-lg" style="color:purple; margin-right:8px;"></i> Sabotage
+        </div>
+        <div style="display: flex; align-items: center;">
+            <i class="fa fa-map-marker fa-lg" style="color:orange; margin-right:8px;"></i> Assassination plot/attempt
+        </div>
+        <div style="display: flex; align-items: center;">
+            <i class="fa fa-map-marker fa-lg" style="color:yellow; margin-right:8px;"></i> Terrorism
+        </div>
+        <div style="display: flex; align-items: center;">
+            <i class="fa fa-map-marker fa-lg" style="color:black; margin-right:8px;"></i> Influence operation
+        </div>
+    </div>
+</div>
+    
+            <div class="folium-map" id="map_a2178f736a3c86a1354c08ce86969f63" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a2178f736a3c86a1354c08ce86969f63 = L.map(
+                "map_a2178f736a3c86a1354c08ce86969f63",
+                {
+                    center: [54.526, 15.2551],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1beccdddf33afe2c339bb366fd3f9da9 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_1beccdddf33afe2c339bb366fd3f9da9.addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var marker_6e12251a71673d165949393138db5755 = L.marker(
+                [61.1636078, 28.7590198],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_ca9cb774a17ec54bbb54e4c7761e9d8c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_6e12251a71673d165949393138db5755.setIcon(icon_ca9cb774a17ec54bbb54e4c7761e9d8c);
+        
+    
+        var popup_255271dfc4defd0d704dd222b47cec25 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_40a9bfe45cd75dfb3f1bf1eb7f6a26d9 = $(`<div id="html_40a9bfe45cd75dfb3f1bf1eb7f6a26d9" style="width: 100.0%; height: 100.0%;"><b>Sending illegal immigrants towards Finland</b><br>Despite the closing of the Finland-Russia border, Putin's regime keeps sending illegal immigrants in Finland in order to stem unrest.</div>`)[0];
+                popup_255271dfc4defd0d704dd222b47cec25.setContent(html_40a9bfe45cd75dfb3f1bf1eb7f6a26d9);
+            
+        
+
+        marker_6e12251a71673d165949393138db5755.bindPopup(popup_255271dfc4defd0d704dd222b47cec25)
+        ;
+
+        
+    
+    
+            var marker_505cfceb8f40637f941f37a63afb56b3 = L.marker(
+                [49.9327186, 11.5327553],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_4816d504e0a15e94f6f53a8141d4f73f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_505cfceb8f40637f941f37a63afb56b3.setIcon(icon_4816d504e0a15e94f6f53a8141d4f73f);
+        
+    
+        var popup_43325098b7ae9a65d19c12405c05aaae = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5d0009c5d21ac8ef46a388ddee55b865 = $(`<div id="html_5d0009c5d21ac8ef46a388ddee55b865" style="width: 100.0%; height: 100.0%;"><b>Two Russian spies arrested for espionage</b><br>Two Russian spies have been arrested for espionage of US bases and for the planning sabotage of military transport routes</div>`)[0];
+                popup_43325098b7ae9a65d19c12405c05aaae.setContent(html_5d0009c5d21ac8ef46a388ddee55b865);
+            
+        
+
+        marker_505cfceb8f40637f941f37a63afb56b3.bindPopup(popup_43325098b7ae9a65d19c12405c05aaae)
+        ;
+
+        
+    
+    
+            var marker_f8f3940975ba933c6daa8dfdd1038644 = L.marker(
+                [52.2328871, 20.8966163],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_7e5d147d6d54f56e8bfcffc21b58d192 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_f8f3940975ba933c6daa8dfdd1038644.setIcon(icon_7e5d147d6d54f56e8bfcffc21b58d192);
+        
+    
+        var popup_b7dfbca05aa60aeee21c605841fb4b31 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_a9c25f4a55b3d09d74b2ada1db024376 = $(`<div id="html_a9c25f4a55b3d09d74b2ada1db024376" style="width: 100.0%; height: 100.0%;"><b>Shopping mall fire in Warsaw</b><br>A fire started in a shopping mall in Warsaw</div>`)[0];
+                popup_b7dfbca05aa60aeee21c605841fb4b31.setContent(html_a9c25f4a55b3d09d74b2ada1db024376);
+            
+        
+
+        marker_f8f3940975ba933c6daa8dfdd1038644.bindPopup(popup_b7dfbca05aa60aeee21c605841fb4b31)
+        ;
+
+        
+    
+    
+            var marker_517c04a37fbc43c248631d6336a360ed = L.marker(
+                [51.1263355, 16.9093795],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_bbeae43257a99120abbd84ba1b30b6a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_517c04a37fbc43c248631d6336a360ed.setIcon(icon_bbeae43257a99120abbd84ba1b30b6a4);
+        
+    
+        var popup_edf57935f51b7c94a64f69149f6f00e5 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c4c7c9a3af26a980cc07bba2b9532437 = $(`<div id="html_c4c7c9a3af26a980cc07bba2b9532437" style="width: 100.0%; height: 100.0%;"><b>Arson attempt on paint factory / fuel depot Wroclaw, Poland</b><br>Arson attempt on paint factory / fuel depot Wroclaw, Poland</div>`)[0];
+                popup_edf57935f51b7c94a64f69149f6f00e5.setContent(html_c4c7c9a3af26a980cc07bba2b9532437);
+            
+        
+
+        marker_517c04a37fbc43c248631d6336a360ed.bindPopup(popup_edf57935f51b7c94a64f69149f6f00e5)
+        ;
+
+        
+    
+    
+            var marker_d1068a313e8605863a711ff8e55b9da1 = L.marker(
+                [54.7005727, 25.0882307],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_0500faae0c5a19edc0c5ad83d5011356 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_d1068a313e8605863a711ff8e55b9da1.setIcon(icon_0500faae0c5a19edc0c5ad83d5011356);
+        
+    
+        var popup_2eb01eb53b548b57ae56e56a6c214db9 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_7f95302f47fcae8d9dbe729a3b1c421d = $(`<div id="html_7f95302f47fcae8d9dbe729a3b1c421d" style="width: 100.0%; height: 100.0%;"><b>Arson attack IKEA Vilnius</b><br>Arson attack IKEA Vilnius</div>`)[0];
+                popup_2eb01eb53b548b57ae56e56a6c214db9.setContent(html_7f95302f47fcae8d9dbe729a3b1c421d);
+            
+        
+
+        marker_d1068a313e8605863a711ff8e55b9da1.bindPopup(popup_2eb01eb53b548b57ae56e56a6c214db9)
+        ;
+
+        
+    
+    
+            var marker_b9d76424f14e366603c6e177c02fa665 = L.marker(
+                [50.1145987, 22.0220219],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_7b8a442aa04e4498d8e21152a8578260 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_b9d76424f14e366603c6e177c02fa665.setIcon(icon_7b8a442aa04e4498d8e21152a8578260);
+        
+    
+        var popup_6351a4f2c0b7b368f4eb46dbcc723323 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_3a4f7b2058184fe59c21a7585dae83f5 = $(`<div id="html_3a4f7b2058184fe59c21a7585dae83f5" style="width: 100.0%; height: 100.0%;"><b>Pole Pawel K. arrested for involvement in plot to assassinate Zelensky.</b><br>Pole Pawel K. arrested for involvement in plot to assassinate Zelensky.</div>`)[0];
+                popup_6351a4f2c0b7b368f4eb46dbcc723323.setContent(html_3a4f7b2058184fe59c21a7585dae83f5);
+            
+        
+
+        marker_b9d76424f14e366603c6e177c02fa665.bindPopup(popup_6351a4f2c0b7b368f4eb46dbcc723323)
+        ;
+
+        
+    
+    
+            var marker_5e540210f61d9c7ba89313fbba43b7d9 = L.marker(
+                [54.682053, 25.342204],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_6d993863a247778fe10f0f1383eb3f78 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_5e540210f61d9c7ba89313fbba43b7d9.setIcon(icon_6d993863a247778fe10f0f1383eb3f78);
+        
+    
+        var popup_ed9f6c7d59c056e51d6e485c4a92abed = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_1f8da1491ee28ede85551071f60a4b20 = $(`<div id="html_1f8da1491ee28ede85551071f60a4b20" style="width: 100.0%; height: 100.0%;"><b>Assassination attempt on Leonid Volkov</b><br>Assassination attempt on Leonid Volkov</div>`)[0];
+                popup_ed9f6c7d59c056e51d6e485c4a92abed.setContent(html_1f8da1491ee28ede85551071f60a4b20);
+            
+        
+
+        marker_5e540210f61d9c7ba89313fbba43b7d9.bindPopup(popup_ed9f6c7d59c056e51d6e485c4a92abed)
+        ;
+
+        
+    
+    
+            var marker_f3277eb2cc83209cc7868b0de7ca05ae = L.marker(
+                [52.4154281, 13.2845249],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_b2e5c296e2647e669417470a1a424fd2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_f3277eb2cc83209cc7868b0de7ca05ae.setIcon(icon_b2e5c296e2647e669417470a1a424fd2);
+        
+    
+        var popup_68298146f9443a94c9fd262b74b765c1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_3fe52455651c094fab5ebef3116af957 = $(`<div id="html_3fe52455651c094fab5ebef3116af957" style="width: 100.0%; height: 100.0%;"><b>Arson Berlin metal factory used for weapons production / Diehl Metall</b><br>Arson Berlin metal factory used for weapons production / Diehl Metall</div>`)[0];
+                popup_68298146f9443a94c9fd262b74b765c1.setContent(html_3fe52455651c094fab5ebef3116af957);
+            
+        
+
+        marker_f3277eb2cc83209cc7868b0de7ca05ae.bindPopup(popup_68298146f9443a94c9fd262b74b765c1)
+        ;
+
+        
+    
+    
+            var marker_63a1019a8abd8e745063b4f2f215cfce = L.marker(
+                [49.1919388, 8.2835798],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_e66c8ef3192d990573b83f504c1206ab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_63a1019a8abd8e745063b4f2f215cfce.setIcon(icon_e66c8ef3192d990573b83f504c1206ab);
+        
+    
+        var popup_c4b15df77c687fe2d3256218168473bd = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_007d5a72dd2d77452f4d775ee0a6eb21 = $(`<div id="html_007d5a72dd2d77452f4d775ee0a6eb21" style="width: 100.0%; height: 100.0%;"><b>Explosives cache found near NATO pipeline in Germany</b><br>Explosives cache found near NATO pipeline in Germany</div>`)[0];
+                popup_c4b15df77c687fe2d3256218168473bd.setContent(html_007d5a72dd2d77452f4d775ee0a6eb21);
+            
+        
+
+        marker_63a1019a8abd8e745063b4f2f215cfce.bindPopup(popup_c4b15df77c687fe2d3256218168473bd)
+        ;
+
+        
+    
+    
+            var marker_cbddf4e5a7448d3bbb67dbffc4e77bc9 = L.marker(
+                [52.4972347, -2.0284349],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_310fd80e6440b5f25a30079e40144e94 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_cbddf4e5a7448d3bbb67dbffc4e77bc9.setIcon(icon_310fd80e6440b5f25a30079e40144e94);
+        
+    
+        var popup_2ac4625a54a629016dce8950e087fba7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_18d41c9e04fbb2eb48d460da24f2d063 = $(`<div id="html_18d41c9e04fbb2eb48d460da24f2d063" style="width: 100.0%; height: 100.0%;"><b>Incendiary device placed on plane, ignites in DHL warehouse UK</b><br>Incendiary device placed on plane, ignites in DHL warehouse UK</div>`)[0];
+                popup_2ac4625a54a629016dce8950e087fba7.setContent(html_18d41c9e04fbb2eb48d460da24f2d063);
+            
+        
+
+        marker_cbddf4e5a7448d3bbb67dbffc4e77bc9.bindPopup(popup_2ac4625a54a629016dce8950e087fba7)
+        ;
+
+        
+    
+    
+            var marker_6a9076132369e1756d034978e5e6af39 = L.marker(
+                [51.3416669, 12.2288312],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_2250d94bacfdef7b790ed472a50325ad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6a9076132369e1756d034978e5e6af39.setIcon(icon_2250d94bacfdef7b790ed472a50325ad);
+        
+    
+        var popup_48125234baedef74fa7cec8ff9bca72e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_fbc98957a23c06e15dcadcc438d1ef11 = $(`<div id="html_fbc98957a23c06e15dcadcc438d1ef11" style="width: 100.0%; height: 100.0%;"><b>Incendiary device about to be loaded on plane, ignites in DHL warehouse Germany</b><br>Incendiary device about to be loaded on plane, ignites in DHL warehouse Germany</div>`)[0];
+                popup_48125234baedef74fa7cec8ff9bca72e.setContent(html_fbc98957a23c06e15dcadcc438d1ef11);
+            
+        
+
+        marker_6a9076132369e1756d034978e5e6af39.bindPopup(popup_48125234baedef74fa7cec8ff9bca72e)
+        ;
+
+        
+    
+    
+            var marker_12ac757ad3acad5f1348a9d1eaded619 = L.marker(
+                [51.5656757, -0.0441656],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_29146c1e79a22222c2b8b683141d1841 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_12ac757ad3acad5f1348a9d1eaded619.setIcon(icon_29146c1e79a22222c2b8b683141d1841);
+        
+    
+        var popup_f8cfd8734f5eb7cb897d793df4e8bfe8 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_dacda33b4bd7418964fbb0a466469dc1 = $(`<div id="html_dacda33b4bd7418964fbb0a466469dc1" style="width: 100.0%; height: 100.0%;"><b>Arson attack on Ukraine-linked business in East London</b><br>Arson attack on Ukraine-linked business in East London</div>`)[0];
+                popup_f8cfd8734f5eb7cb897d793df4e8bfe8.setContent(html_dacda33b4bd7418964fbb0a466469dc1);
+            
+        
+
+        marker_12ac757ad3acad5f1348a9d1eaded619.bindPopup(popup_f8cfd8734f5eb7cb897d793df4e8bfe8)
+        ;
+
+        
+    
+    
+            var marker_2d53dd271bd94f1da28c9a4a3a06a122 = L.marker(
+                [52.5067296, 13.2599283],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_41c062bd2bb257248117073c56107a29 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_2d53dd271bd94f1da28c9a4a3a06a122.setIcon(icon_41c062bd2bb257248117073c56107a29);
+        
+    
+        var popup_d8f8c7b9a7208fef2b2d39bf15bea4e4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_9d32f58354a1ae10527c33fded546883 = $(`<div id="html_9d32f58354a1ae10527c33fded546883" style="width: 100.0%; height: 100.0%;"><b>Thwarted plot to kill Rheinmetall CEO Armin Papperger</b><br>Thwarted plot to kill Rheinmetall CEO Armin Papperger</div>`)[0];
+                popup_d8f8c7b9a7208fef2b2d39bf15bea4e4.setContent(html_9d32f58354a1ae10527c33fded546883);
+            
+        
+
+        marker_2d53dd271bd94f1da28c9a4a3a06a122.bindPopup(popup_d8f8c7b9a7208fef2b2d39bf15bea4e4)
+        ;
+
+        
+    
+    
+            var marker_8ea6662a2874ee8fd57f614a9c187c5f = L.marker(
+                [64.2168742, 27.6877428],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_568a3265f3e7d339464f3fd01ac86946 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_8ea6662a2874ee8fd57f614a9c187c5f.setIcon(icon_568a3265f3e7d339464f3fd01ac86946);
+        
+    
+        var popup_d869519ec01ede0397b31171baba3412 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_51726763e354f25933859d58bacfbaaf = $(`<div id="html_51726763e354f25933859d58bacfbaaf" style="width: 100.0%; height: 100.0%;"><b>Russian GPS jamming of Finish airports</b><br>Russian GPS jamming of Finish airports</div>`)[0];
+                popup_d869519ec01ede0397b31171baba3412.setContent(html_51726763e354f25933859d58bacfbaaf);
+            
+        
+
+        marker_8ea6662a2874ee8fd57f614a9c187c5f.bindPopup(popup_d869519ec01ede0397b31171baba3412)
+        ;
+
+        
+    
+    
+            var marker_e23b50de78407216c439c6ad33ea5392 = L.marker(
+                [38.5122942, -0.2575678],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_1ee15c2f3d01f4709414f48160595ae8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_e23b50de78407216c439c6ad33ea5392.setIcon(icon_1ee15c2f3d01f4709414f48160595ae8);
+        
+    
+        var popup_a2e1ef733669444610045023e776b174 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c4ea33b889391dbcdc14698a8472356a = $(`<div id="html_c4ea33b889391dbcdc14698a8472356a" style="width: 100.0%; height: 100.0%;"><b>Russians kill defected pilot in Spain</b><br>Russians kill defected pilot in Spain</div>`)[0];
+                popup_a2e1ef733669444610045023e776b174.setContent(html_c4ea33b889391dbcdc14698a8472356a);
+            
+        
+
+        marker_e23b50de78407216c439c6ad33ea5392.bindPopup(popup_a2e1ef733669444610045023e776b174)
+        ;
+
+        
+    
+    
+            var marker_c26d9a23e3f9fcb25709942c4d0e55c3 = L.marker(
+                [40.297298, -3.8326378],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_3ae7d10a297d781e25b0308bf385d34e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_c26d9a23e3f9fcb25709942c4d0e55c3.setIcon(icon_3ae7d10a297d781e25b0308bf385d34e);
+        
+    
+        var popup_4c2d60af11b1a27accbaefa468c75ab9 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_eab35d5d1819f014bf57e41d56ffdf0a = $(`<div id="html_eab35d5d1819f014bf57e41d56ffdf0a" style="width: 100.0%; height: 100.0%;"><b>Arson attack on Ukraine-linked business in Fuenlabrada, outskirts Madrid, linked to London attack</b><br>Arson attack on Ukraine-linked business in Fuenlabrada, outskirts Madrid, linked to London attack</div>`)[0];
+                popup_4c2d60af11b1a27accbaefa468c75ab9.setContent(html_eab35d5d1819f014bf57e41d56ffdf0a);
+            
+        
+
+        marker_c26d9a23e3f9fcb25709942c4d0e55c3.bindPopup(popup_4c2d60af11b1a27accbaefa468c75ab9)
+        ;
+
+        
+    
+    
+            var marker_b3837783d317c62feb31b1cb5a1a578c = L.marker(
+                [50.059553, 14.30082],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_5ebd6952f680113cd6ba5a6b91c43587 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b3837783d317c62feb31b1cb5a1a578c.setIcon(icon_5ebd6952f680113cd6ba5a6b91c43587);
+        
+    
+        var popup_530374a832ca13eaef98087510c15b1d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f89f424e84b61b4019a6371cb79ae9d5 = $(`<div id="html_f89f424e84b61b4019a6371cb79ae9d5" style="width: 100.0%; height: 100.0%;"><b>Arson attempt on buses in Prague </b><br>Arson attempt on buses in Prague</div>`)[0];
+                popup_530374a832ca13eaef98087510c15b1d.setContent(html_f89f424e84b61b4019a6371cb79ae9d5);
+            
+        
+
+        marker_b3837783d317c62feb31b1cb5a1a578c.bindPopup(popup_530374a832ca13eaef98087510c15b1d)
+        ;
+
+        
+    
+    
+            var marker_850c32935de3e739dc992b32e944fe36 = L.marker(
+                [61.3501678, 16.3444402],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_0bd889e30914aef388f2956a1dc6b227 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_850c32935de3e739dc992b32e944fe36.setIcon(icon_0bd889e30914aef388f2956a1dc6b227);
+        
+    
+        var popup_b7b6c510ddd55e78731e7b4010e33709 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2bf16cf624dd44259adf83779998b9ed = $(`<div id="html_2bf16cf624dd44259adf83779998b9ed" style="width: 100.0%; height: 100.0%;"><b>Intrusion into Swedish water treatment plant</b><br>Intrusion into Swedish water treatment plant</div>`)[0];
+                popup_b7b6c510ddd55e78731e7b4010e33709.setContent(html_2bf16cf624dd44259adf83779998b9ed);
+            
+        
+
+        marker_850c32935de3e739dc992b32e944fe36.bindPopup(popup_b7b6c510ddd55e78731e7b4010e33709)
+        ;
+
+        
+    
+    
+            var marker_0a8e819dc1c5ebce6c73c999b374dce2 = L.marker(
+                [50.9575869, 6.8025186],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_012eaa356d53402098d8915b14ff9441 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0a8e819dc1c5ebce6c73c999b374dce2.setIcon(icon_012eaa356d53402098d8915b14ff9441);
+        
+    
+        var popup_0f22d5acd1233099e2f3998362b8ad34 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_dbdccb64356214884b6338da03bad8a8 = $(`<div id="html_dbdccb64356214884b6338da03bad8a8" style="width: 100.0%; height: 100.0%;"><b>Hole cut in fence around water treatment plant near Cologne</b><br>Hole cut in fence around water treatment plant near Cologne</div>`)[0];
+                popup_0f22d5acd1233099e2f3998362b8ad34.setContent(html_dbdccb64356214884b6338da03bad8a8);
+            
+        
+
+        marker_0a8e819dc1c5ebce6c73c999b374dce2.bindPopup(popup_0f22d5acd1233099e2f3998362b8ad34)
+        ;
+
+        
+    
+    
+            var marker_f591057ed8204bcf0905353531b8f28b = L.marker(
+                [56.7639843, 24.8534062],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_479cebfb60960c917156159339d06dc0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f591057ed8204bcf0905353531b8f28b.setIcon(icon_479cebfb60960c917156159339d06dc0);
+        
+    
+        var popup_5f768e9a25a58399c62413c566ae1a05 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_21a9f2d3d32e4cf1fcea31b1b55d841f = $(`<div id="html_21a9f2d3d32e4cf1fcea31b1b55d841f" style="width: 100.0%; height: 100.0%;"><b>Spionage of Lielvarde military airfield, near Rembate, Latvia</b><br>Spionage of Lielvarde military airfield, near Rembate, Latvia</div>`)[0];
+                popup_5f768e9a25a58399c62413c566ae1a05.setContent(html_21a9f2d3d32e4cf1fcea31b1b55d841f);
+            
+        
+
+        marker_f591057ed8204bcf0905353531b8f28b.bindPopup(popup_5f768e9a25a58399c62413c566ae1a05)
+        ;
+
+        
+    
+    
+            var marker_34b49040ec19d864672bb15e654287a8 = L.marker(
+                [59.4715852, 24.5734369],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_b6c2e981d2fa4a290aa7c508cc86ef08 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_34b49040ec19d864672bb15e654287a8.setIcon(icon_b6c2e981d2fa4a290aa7c508cc86ef08);
+        
+    
+        var popup_325bb68f071c5aa884f32babd2abdf53 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_a8e9f65459adc46071e02db5fda81872 = $(`<div id="html_a8e9f65459adc46071e02db5fda81872" style="width: 100.0%; height: 100.0%;"><b>Descecration of memorial sites in Estonia</b><br>Descecration of memorial sites in Estonia</div>`)[0];
+                popup_325bb68f071c5aa884f32babd2abdf53.setContent(html_a8e9f65459adc46071e02db5fda81872);
+            
+        
+
+        marker_34b49040ec19d864672bb15e654287a8.bindPopup(popup_325bb68f071c5aa884f32babd2abdf53)
+        ;
+
+        
+    
+    
+            var marker_eadaa545d6848a96b5b446b21fc4fc85 = L.marker(
+                [59.4715852, 24.5734369],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_64b78d493c79c959117ea1593945eea3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_eadaa545d6848a96b5b446b21fc4fc85.setIcon(icon_64b78d493c79c959117ea1593945eea3);
+        
+    
+        var popup_f1f587b49b55bbcc61dbbfc929bbc0bf = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ae33e641200ae95e3dfdcdb49a404771 = $(`<div id="html_ae33e641200ae95e3dfdcdb49a404771" style="width: 100.0%; height: 100.0%;"><b>Vandalizing car of Estonian interior minister</b><br>Vandalizing car of Estonian interior minister</div>`)[0];
+                popup_f1f587b49b55bbcc61dbbfc929bbc0bf.setContent(html_ae33e641200ae95e3dfdcdb49a404771);
+            
+        
+
+        marker_eadaa545d6848a96b5b446b21fc4fc85.bindPopup(popup_f1f587b49b55bbcc61dbbfc929bbc0bf)
+        ;
+
+        
+    
+    
+            var marker_672d1dbeab6e8c62c9ccf7f3470ffe94 = L.marker(
+                [59.4715852, 24.5734369],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_cfa680df8350cfc9badb8dad17c77fdc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_672d1dbeab6e8c62c9ccf7f3470ffe94.setIcon(icon_cfa680df8350cfc9badb8dad17c77fdc);
+        
+    
+        var popup_f32249671634d187f2528df8738decd9 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_55107cd1d04ee3c959af853014676cb5 = $(`<div id="html_55107cd1d04ee3c959af853014676cb5" style="width: 100.0%; height: 100.0%;"><b>Vandalizing car of Estonian journalist</b><br>Vandalizing car of Estonian journalist</div>`)[0];
+                popup_f32249671634d187f2528df8738decd9.setContent(html_55107cd1d04ee3c959af853014676cb5);
+            
+        
+
+        marker_672d1dbeab6e8c62c9ccf7f3470ffe94.bindPopup(popup_f32249671634d187f2528df8738decd9)
+        ;
+
+        
+    
+    
+            var marker_d8ed78630ee52b86ae511aa1b6ba67de = L.marker(
+                [56.9468651, 24.1039456],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_f8be9053f027aa5439f4ff4dad6d9857 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d8ed78630ee52b86ae511aa1b6ba67de.setIcon(icon_f8be9053f027aa5439f4ff4dad6d9857);
+        
+    
+        var popup_47b9ffc2aeb9af404308ffff6b88aab3 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ac48858ba597687f7265c59ced3d7d03 = $(`<div id="html_ac48858ba597687f7265c59ced3d7d03" style="width: 100.0%; height: 100.0%;"><b>Arson attempt Latvian Museum of Occupation</b><br>Arson attempt Latvian Museum of Occupation</div>`)[0];
+                popup_47b9ffc2aeb9af404308ffff6b88aab3.setContent(html_ac48858ba597687f7265c59ced3d7d03);
+            
+        
+
+        marker_d8ed78630ee52b86ae511aa1b6ba67de.bindPopup(popup_47b9ffc2aeb9af404308ffff6b88aab3)
+        ;
+
+        
+    
+    
+            var marker_ec2d7086164a90061e22759911a80bb8 = L.marker(
+                [59.4258149, 24.7682253],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_c211e38680ec435f3f2764cbcc81fdb7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_ec2d7086164a90061e22759911a80bb8.setIcon(icon_c211e38680ec435f3f2764cbcc81fdb7);
+        
+    
+        var popup_35aea537419edee3f3b856c035efa40b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_71f8f0019f0d3ada27d137c1e0cb365d = $(`<div id="html_71f8f0019f0d3ada27d137c1e0cb365d" style="width: 100.0%; height: 100.0%;"><b>Spraypainting 'KILLNET HACKED YOU' on Cyber Defence Centre, Tallinn</b><br>Spraypainting 'KILLNET HACKED YOU' on Cyber Defence Centre, Tallinn</div>`)[0];
+                popup_35aea537419edee3f3b856c035efa40b.setContent(html_71f8f0019f0d3ada27d137c1e0cb365d);
+            
+        
+
+        marker_ec2d7086164a90061e22759911a80bb8.bindPopup(popup_35aea537419edee3f3b856c035efa40b)
+        ;
+
+        
+    
+    
+            var marker_b533f3066aebdfcb5ec0bfca4653655f = L.marker(
+                [48.8588255, 2.2646343],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_44de31e21f5d67d3a0d6679637bd2dcf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b533f3066aebdfcb5ec0bfca4653655f.setIcon(icon_44de31e21f5d67d3a0d6679637bd2dcf);
+        
+    
+        var popup_f30834a1e5e6ac902a03369a730f1e1b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5ce15bbc0282c8d64febfbd054f0d854 = $(`<div id="html_5ce15bbc0282c8d64febfbd054f0d854" style="width: 100.0%; height: 100.0%;"><b>Russian arrested on suspicion of plot to destabilize Olympics</b><br>Russian arrested on suspicion of plot to destabilize Olympics</div>`)[0];
+                popup_f30834a1e5e6ac902a03369a730f1e1b.setContent(html_5ce15bbc0282c8d64febfbd054f0d854);
+            
+        
+
+        marker_b533f3066aebdfcb5ec0bfca4653655f.bindPopup(popup_f30834a1e5e6ac902a03369a730f1e1b)
+        ;
+
+        
+    
+    
+            var marker_2dce224602f7319cf2abb013ebf00f06 = L.marker(
+                [48.8583701, 2.2919064],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_f6fd521e8c9bdf584dcc701555c21e76 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_2dce224602f7319cf2abb013ebf00f06.setIcon(icon_f6fd521e8c9bdf584dcc701555c21e76);
+        
+    
+        var popup_cbaf4a9bd6f51df81e23120b72eb1607 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0d8efd2c4b65d00d3be46e8b9cc8aa8e = $(`<div id="html_0d8efd2c4b65d00d3be46e8b9cc8aa8e" style="width: 100.0%; height: 100.0%;"><b>Five coffins with French flag & 'French soldiers in Ukraine' near Eiffel tower</b><br>Five coffins with French flag & 'French soldiers in Ukraine' near Eiffel tower</div>`)[0];
+                popup_cbaf4a9bd6f51df81e23120b72eb1607.setContent(html_0d8efd2c4b65d00d3be46e8b9cc8aa8e);
+            
+        
+
+        marker_2dce224602f7319cf2abb013ebf00f06.bindPopup(popup_cbaf4a9bd6f51df81e23120b72eb1607)
+        ;
+
+        
+    
+    
+            var marker_a1afdb276c539d80ba5f451c578c98d5 = L.marker(
+                [48.8588255, 2.2646343],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_7e3acece9f61650056131f930532ee33 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a1afdb276c539d80ba5f451c578c98d5.setIcon(icon_7e3acece9f61650056131f930532ee33);
+        
+    
+        var popup_10bd86a845ec2f5258adaf548f6f969b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8ded97cd7d4424ce20f3d14f1485afcb = $(`<div id="html_8ded97cd7d4424ce20f3d14f1485afcb" style="width: 100.0%; height: 100.0%;"><b>Russian-Ukrainian man arrested in Paris with explosives, intended to target hardware store</b><br>Russian-Ukrainian man arrested in Paris with explosives, intended to target hardware store</div>`)[0];
+                popup_10bd86a845ec2f5258adaf548f6f969b.setContent(html_8ded97cd7d4424ce20f3d14f1485afcb);
+            
+        
+
+        marker_a1afdb276c539d80ba5f451c578c98d5.bindPopup(popup_10bd86a845ec2f5258adaf548f6f969b)
+        ;
+
+        
+    
+    
+            var marker_4233aa68beb457417696202e43e28e54 = L.marker(
+                [48.5975907, 7.7636872],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_d3e94d38a0074d86e7bc9f5dc7e58d55 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_4233aa68beb457417696202e43e28e54.setIcon(icon_d3e94d38a0074d86e7bc9f5dc7e58d55);
+        
+    
+        var popup_a6988028ae18ba79a4fedf3f048b25d1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_cd4731dab2efa1c66274affcbf266b34 = $(`<div id="html_cd4731dab2efa1c66274affcbf266b34" style="width: 100.0%; height: 100.0%;"><b>Pro-Russian campaign to influence 2024 EU parliamentary elections by Jean-Luc Schaffhauser</b><br>Pro-Russian campaign to influence 2024 EU parliamentary elections by Jean-Luc Schaffhauser</div>`)[0];
+                popup_a6988028ae18ba79a4fedf3f048b25d1.setContent(html_cd4731dab2efa1c66274affcbf266b34);
+            
+        
+
+        marker_4233aa68beb457417696202e43e28e54.bindPopup(popup_a6988028ae18ba79a4fedf3f048b25d1)
+        ;
+
+        
+    
+    
+            var marker_92891ca66e1fccf19db4720065694fb1 = L.marker(
+                [48.5975907, 7.7636872],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_d1e4f6eaa4988b8c383415ea2a538c90 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_92891ca66e1fccf19db4720065694fb1.setIcon(icon_d1e4f6eaa4988b8c383415ea2a538c90);
+        
+    
+        var popup_3f7605086a42cb2189ec78232c9c5dc0 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5f8b1acf31e68befaf77deb25a4154a6 = $(`<div id="html_5f8b1acf31e68befaf77deb25a4154a6" style="width: 100.0%; height: 100.0%;"><b>Voice of Europe, cash payments to anti-establishment politicians, Russian attempt to influence EU Parliament elections</b><br>Voice of Europe, cash payments to anti-establishment politicians, Russian attempt to influence EU Parliament elections</div>`)[0];
+                popup_3f7605086a42cb2189ec78232c9c5dc0.setContent(html_5f8b1acf31e68befaf77deb25a4154a6);
+            
+        
+
+        marker_92891ca66e1fccf19db4720065694fb1.bindPopup(popup_3f7605086a42cb2189ec78232c9c5dc0)
+        ;
+
+        
+    
+    
+            var marker_1d650fd1511b5efcbda2e6a09a58558c = L.marker(
+                [56.9479521, 24.1047063],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_22aa5af11edef18e609d7a1b3dc9dfc2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1d650fd1511b5efcbda2e6a09a58558c.setIcon(icon_22aa5af11edef18e609d7a1b3dc9dfc2);
+        
+    
+        var popup_d025c40d72bc5a42f4483535712c61a8 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_b56923fc62ac355b45948bc5e448c984 = $(`<div id="html_b56923fc62ac355b45948bc5e448c984" style="width: 100.0%; height: 100.0%;"><b>Monument to Lativan partisan leader defaced with paint</b><br>Monument to Lativan partisan leader defaced with paint</div>`)[0];
+                popup_d025c40d72bc5a42f4483535712c61a8.setContent(html_b56923fc62ac355b45948bc5e448c984);
+            
+        
+
+        marker_1d650fd1511b5efcbda2e6a09a58558c.bindPopup(popup_d025c40d72bc5a42f4483535712c61a8)
+        ;
+
+        
+    
+    
+            var marker_e17347aad6adf3cf5dc31215aeb267f9 = L.marker(
+                [48.8799878, 2.3483717],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_c8b766acdd7f620f43dca50fe8d37537 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_e17347aad6adf3cf5dc31215aeb267f9.setIcon(icon_c8b766acdd7f620f43dca50fe8d37537);
+        
+    
+        var popup_14b42eb2bf0eb36762d8f654b95a021a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_4c6579f292f211d856e7369271c83ea7 = $(`<div id="html_4c6579f292f211d856e7369271c83ea7" style="width: 100.0%; height: 100.0%;"><b>Stars of David graffiti in Paris, suspected Russian influence op</b><br>Stars of David graffiti in Paris, suspected Russian influence op</div>`)[0];
+                popup_14b42eb2bf0eb36762d8f654b95a021a.setContent(html_4c6579f292f211d856e7369271c83ea7);
+            
+        
+
+        marker_e17347aad6adf3cf5dc31215aeb267f9.bindPopup(popup_14b42eb2bf0eb36762d8f654b95a021a)
+        ;
+
+        
+    
+    
+            var marker_44ad0d5d955ed9c2ead80be4c3392691 = L.marker(
+                [53.9788743, 22.0228921],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_7d3a25141d93c80e4b8a283db7462c03 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_44ad0d5d955ed9c2ead80be4c3392691.setIcon(icon_7d3a25141d93c80e4b8a283db7462c03);
+        
+    
+        var popup_cbac7a994b82169f8d4577044182ebbe = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_dbed80a255850f5eecd7ab4dc5d0ffc0 = $(`<div id="html_dbed80a255850f5eecd7ab4dc5d0ffc0" style="width: 100.0%; height: 100.0%;"><b>Cyber Army of Russia Reborn infiltrates wastewater facility Poland, village of Wydminy</b><br>Cyber Army of Russia Reborn infiltrates wastewater facility Poland, village of Wydminy</div>`)[0];
+                popup_cbac7a994b82169f8d4577044182ebbe.setContent(html_dbed80a255850f5eecd7ab4dc5d0ffc0);
+            
+        
+
+        marker_44ad0d5d955ed9c2ead80be4c3392691.bindPopup(popup_cbac7a994b82169f8d4577044182ebbe)
+        ;
+
+        
+    
+    
+            var marker_0a239c18f06856ae2612922352763d2e = L.marker(
+                [48.3435692, 3.1375025],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_72abbb674778ace690e6ee98c850cba3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0a239c18f06856ae2612922352763d2e.setIcon(icon_72abbb674778ace690e6ee98c850cba3);
+        
+    
+        var popup_3fe61c6f8412dc22b66ec6ad17384f3d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c17d6c249da3e2f995b41a93211c38d3 = $(`<div id="html_c17d6c249da3e2f995b41a93211c38d3" style="width: 100.0%; height: 100.0%;"><b>Cyber Army of Russia Reborn infiltrates water mill in France / hydroelectric dam Sur Yvonne</b><br>Cyber Army of Russia Reborn infiltrates water mill in France / hydroelectric dam Sur Yvonne</div>`)[0];
+                popup_3fe61c6f8412dc22b66ec6ad17384f3d.setContent(html_c17d6c249da3e2f995b41a93211c38d3);
+            
+        
+
+        marker_0a239c18f06856ae2612922352763d2e.bindPopup(popup_3fe61c6f8412dc22b66ec6ad17384f3d)
+        ;
+
+        
+    
+    
+            var marker_846661f8643240756202119519c46278 = L.marker(
+                [42.6564421, 26.9560293],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_ce9c89ed7ed6e5864ba944b04a0575e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_846661f8643240756202119519c46278.setIcon(icon_ce9c89ed7ed6e5864ba944b04a0575e7);
+        
+    
+        var popup_055aaf5e51ed299dbfb1ca56984e6b20 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_1e9daee7a9683fafb598dde7a9cd7141 = $(`<div id="html_1e9daee7a9683fafb598dde7a9cd7141" style="width: 100.0%; height: 100.0%;"><b>Arms factory fire / explosion in Karnobat, Bulgaria 2022/2023</b><br>Arms factory fire / explosion in Karnobat, Bulgaria 2023</div>`)[0];
+                popup_055aaf5e51ed299dbfb1ca56984e6b20.setContent(html_1e9daee7a9683fafb598dde7a9cd7141);
+            
+        
+
+        marker_846661f8643240756202119519c46278.bindPopup(popup_055aaf5e51ed299dbfb1ca56984e6b20)
+        ;
+
+        
+    
+    
+            var marker_140fb678648876e0d686313a286c688a = L.marker(
+                [52.2328871, 20.8966163],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_3891c32b11a6f1159c9d3f1689629a03 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_140fb678648876e0d686313a286c688a.setIcon(icon_3891c32b11a6f1159c9d3f1689629a03);
+        
+    
+        var popup_54c68083d02b71069c063f4ee588bca4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_326a3c4415aa68a73870f1e5ecfa232f = $(`<div id="html_326a3c4415aa68a73870f1e5ecfa232f" style="width: 100.0%; height: 100.0%;"><b>Attempt to sabotage arms deliveries to Ukraine in Poland, plant cameras, recruit Ukrainian refugees</b><br>Attempt to sabotage arms deliveries to Ukraine in Poland, plant cameras, recruit Ukrainian refugees</div>`)[0];
+                popup_54c68083d02b71069c063f4ee588bca4.setContent(html_326a3c4415aa68a73870f1e5ecfa232f);
+            
+        
+
+        marker_140fb678648876e0d686313a286c688a.bindPopup(popup_54c68083d02b71069c063f4ee588bca4)
+        ;
+
+        
+    
+    
+            var marker_6c326f790fe2054d1a6a5d51aa7e8a44 = L.marker(
+                [52.586912, 13.38651],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_754038fe2d88bdc966349e6c1fe60f79 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_6c326f790fe2054d1a6a5d51aa7e8a44.setIcon(icon_754038fe2d88bdc966349e6c1fe60f79);
+        
+    
+        var popup_d3ae3be3e9924df07d7fcdce840844d8 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2871029027419faecaf54eb5325a934c = $(`<div id="html_2871029027419faecaf54eb5325a934c" style="width: 100.0%; height: 100.0%;"><b>Building (far) left & (far) right-wing anti-war coaltion in Germany (Wagenknecht / AfD)</b><br>Building (far) left & (far) right-wing anti-war coaltion in Germany (Wagenknecht / AfD)</div>`)[0];
+                popup_d3ae3be3e9924df07d7fcdce840844d8.setContent(html_2871029027419faecaf54eb5325a934c);
+            
+        
+
+        marker_6c326f790fe2054d1a6a5d51aa7e8a44.bindPopup(popup_d3ae3be3e9924df07d7fcdce840844d8)
+        ;
+
+        
+    
+    
+            var marker_cfad298371c927b804a835ad2e3d9a00 = L.marker(
+                [69.7241561, 30.0377204],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_441ec190c0f4630eaf08361f5a80074f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_cfad298371c927b804a835ad2e3d9a00.setIcon(icon_441ec190c0f4630eaf08361f5a80074f);
+        
+    
+        var popup_09365afb8396d9c41aefe54e28b8d3bf = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_e37aa19a3b151f444a5a39403cb4167e = $(`<div id="html_e37aa19a3b151f444a5a39403cb4167e" style="width: 100.0%; height: 100.0%;"><b>Russian nationals flying drones over Norwegian airports, energy infrastructure, photographing</b><br>Russian nationals flying drones over Norwegian airports, energy infrastructure, photographing</div>`)[0];
+                popup_09365afb8396d9c41aefe54e28b8d3bf.setContent(html_e37aa19a3b151f444a5a39403cb4167e);
+            
+        
+
+        marker_cfad298371c927b804a835ad2e3d9a00.bindPopup(popup_09365afb8396d9c41aefe54e28b8d3bf)
+        ;
+
+        
+    
+    
+            var marker_4d448620ee54edc55ac562c069e85ff6 = L.marker(
+                [61.081426, 28.764113],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_056eeb6bb308878e16785d94fe26d89a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_4d448620ee54edc55ac562c069e85ff6.setIcon(icon_056eeb6bb308878e16785d94fe26d89a);
+        
+    
+        var popup_55c50fe2ebf209a955a5aa5efbfeba9e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_3ce7878d17d92abe13c33b46aefc3ba8 = $(`<div id="html_3ce7878d17d92abe13c33b46aefc3ba8" style="width: 100.0%; height: 100.0%;"><b>Russia sends large number immigrants towards Finish border</b><br>Russia sends large number immigrants towards Finish border</div>`)[0];
+                popup_55c50fe2ebf209a955a5aa5efbfeba9e.setContent(html_3ce7878d17d92abe13c33b46aefc3ba8);
+            
+        
+
+        marker_4d448620ee54edc55ac562c069e85ff6.bindPopup(popup_55c50fe2ebf209a955a5aa5efbfeba9e)
+        ;
+
+        
+    
+    
+            var marker_9a96d0a9df649e5f8481bb33ebf88669 = L.marker(
+                [59.3038451, 18.0037559],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_26081868d3cad27becc560863215bdc2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9a96d0a9df649e5f8481bb33ebf88669.setIcon(icon_26081868d3cad27becc560863215bdc2);
+        
+    
+        var popup_7d29924f1fb1747d60146714812b63f5 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_dc975fb1d174981a5177fa259082f03e = $(`<div id="html_dc975fb1d174981a5177fa259082f03e" style="width: 100.0%; height: 100.0%;"><b>Digital and/or physical break-ins Swedish arms manufacturers, potential sabotage prep / disruption</b><br>Digital and/or physical break-ins Swedish arms manufacturers, potential sabotage prep / disruption</div>`)[0];
+                popup_7d29924f1fb1747d60146714812b63f5.setContent(html_dc975fb1d174981a5177fa259082f03e);
+            
+        
+
+        marker_9a96d0a9df649e5f8481bb33ebf88669.bindPopup(popup_7d29924f1fb1747d60146714812b63f5)
+        ;
+
+        
+    
+    
+            var marker_f912ce6454927e8f17297b9f8cd862b3 = L.marker(
+                [53.9140754, 9.0749772],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_3a515db6e35be5546574e7844793f268 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_f912ce6454927e8f17297b9f8cd862b3.setIcon(icon_3a515db6e35be5546574e7844793f268);
+        
+    
+        var popup_a09a28cbf20a54b1da89719bfaf4db40 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_dddbd7ede589315e6213aaa8a4b9b991 = $(`<div id="html_dddbd7ede589315e6213aaa8a4b9b991" style="width: 100.0%; height: 100.0%;"><b>Drone overflights of industrial & military sites in Germany, suspected sabotage prep</b><br>Drone overflights of industrial & military sites in Germany, suspected sabotage prep</div>`)[0];
+                popup_a09a28cbf20a54b1da89719bfaf4db40.setContent(html_dddbd7ede589315e6213aaa8a4b9b991);
+            
+        
+
+        marker_f912ce6454927e8f17297b9f8cd862b3.bindPopup(popup_a09a28cbf20a54b1da89719bfaf4db40)
+        ;
+
+        
+    
+    
+            var marker_e5edf0a7f47c7dc12564786466b0c96e = L.marker(
+                [59.2227129, 27.6320845],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_9752007a0967cb4543b8a15f5e1d3b92 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e5edf0a7f47c7dc12564786466b0c96e.setIcon(icon_9752007a0967cb4543b8a15f5e1d3b92);
+        
+    
+        var popup_c1789453b2382e3db09c5e6f311cf9a1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5fa28baf4dc92ed1131872f8dda4059a = $(`<div id="html_5fa28baf4dc92ed1131872f8dda4059a" style="width: 100.0%; height: 100.0%;"><b>Russia removes border buoys Estonian river Narva</b><br>Russia removes border buoys Estonian river Narva</div>`)[0];
+                popup_c1789453b2382e3db09c5e6f311cf9a1.setContent(html_5fa28baf4dc92ed1131872f8dda4059a);
+            
+        
+
+        marker_e5edf0a7f47c7dc12564786466b0c96e.bindPopup(popup_c1789453b2382e3db09c5e6f311cf9a1)
+        ;
+
+        
+    
+    
+            var marker_51dbd4394496a5ac6b74254ef6c3814c = L.marker(
+                [50.9546115, 6.0566973],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_37e07972c9f12d74e86596b3b59760c0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_51dbd4394496a5ac6b74254ef6c3814c.setIcon(icon_37e07972c9f12d74e86596b3b59760c0);
+        
+    
+        var popup_96e07120e86fd262d0907778b01daa8a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_60d6d82ae90a3f84aa1ab85dcb65abc2 = $(`<div id="html_60d6d82ae90a3f84aa1ab85dcb65abc2" style="width: 100.0%; height: 100.0%;"><b>Planned / attempted sabotage attack against Geilenkirchen base with drones</b><br>Planned / attempted sabotage attack against Geilenkirchen base with drones</div>`)[0];
+                popup_96e07120e86fd262d0907778b01daa8a.setContent(html_60d6d82ae90a3f84aa1ab85dcb65abc2);
+            
+        
+
+        marker_51dbd4394496a5ac6b74254ef6c3814c.bindPopup(popup_96e07120e86fd262d0907778b01daa8a)
+        ;
+
+        
+    
+    
+            var marker_428ab908bb9d56a0197a1849938986ee = L.marker(
+                [60.2476086, 25.456852],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_96a09d172411010cb1a89b4bff9bd65d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_428ab908bb9d56a0197a1849938986ee.setIcon(icon_96a09d172411010cb1a89b4bff9bd65d);
+        
+    
+        var popup_78d5c08549e017c906a891e221abbb5c = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_e8a5634e48fe701147d7b3e49d76285d = $(`<div id="html_e8a5634e48fe701147d7b3e49d76285d" style="width: 100.0%; height: 100.0%;"><b>11 break-ins in Finish water towers / treatment plants</b><br>11 break-ins in Finish water towers / treatment plants</div>`)[0];
+                popup_78d5c08549e017c906a891e221abbb5c.setContent(html_e8a5634e48fe701147d7b3e49d76285d);
+            
+        
+
+        marker_428ab908bb9d56a0197a1849938986ee.bindPopup(popup_78d5c08549e017c906a891e221abbb5c)
+        ;
+
+        
+    
+    
+            var marker_ede2ad46320d4b481064ff8a2669e7fa = L.marker(
+                [44.4377961, 26.0122376],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_33aaf220e232e22e20ee0d67001b2a5e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_ede2ad46320d4b481064ff8a2669e7fa.setIcon(icon_33aaf220e232e22e20ee0d67001b2a5e);
+        
+    
+        var popup_9c39b41d539add8c5c3af908136a29ca = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d679e6161cdbd1db113e0fb811a647b7 = $(`<div id="html_d679e6161cdbd1db113e0fb811a647b7" style="width: 100.0%; height: 100.0%;"><b>Russian interference in Romanian elections to back Calin Georgescu, who wants to end aid to Ukraine</b><br>Russian interference in Romanian elections to back Calin Georgescu, who wants to end aid to Ukraine</div>`)[0];
+                popup_9c39b41d539add8c5c3af908136a29ca.setContent(html_d679e6161cdbd1db113e0fb811a647b7);
+            
+        
+
+        marker_ede2ad46320d4b481064ff8a2669e7fa.bindPopup(popup_9c39b41d539add8c5c3af908136a29ca)
+        ;
+
+        
+    
+    
+            var marker_4261d6e6d0c7b307038b0d2b53dfcf31 = L.marker(
+                [48.8549507, 2.3536303],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_1eccbc706db463891cf03c74dd19f56e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4261d6e6d0c7b307038b0d2b53dfcf31.setIcon(icon_1eccbc706db463891cf03c74dd19f56e);
+        
+    
+        var popup_eb50f5887e7bb8170b85b80aae028151 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_be7c17b942592d452b360b66527b83a8 = $(`<div id="html_be7c17b942592d452b360b66527b83a8" style="width: 100.0%; height: 100.0%;"><b>Holocaust memorial in Paris vandalized with paint, pro-Palestinian red hands painted on memorial, police suspect Russia</b><br>Holocaust memorial in Paris vandalized with paint, pro-Palestinian red hands painted on memorial, police suspect Russia</div>`)[0];
+                popup_eb50f5887e7bb8170b85b80aae028151.setContent(html_be7c17b942592d452b360b66527b83a8);
+            
+        
+
+        marker_4261d6e6d0c7b307038b0d2b53dfcf31.bindPopup(popup_eb50f5887e7bb8170b85b80aae028151)
+        ;
+
+        
+    
+    
+            var marker_7d82f1bd8500b9887e085c453c1e0d50 = L.marker(
+                [48.842928, 2.40502],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_b14be0b296fb858d677b80121f056318 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_7d82f1bd8500b9887e085c453c1e0d50.setIcon(icon_b14be0b296fb858d677b80121f056318);
+        
+    
+        var popup_10816e5b920572eb46b33383e244f03f = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_e6a7a4ecbdae79460cab6ef42fcb0591 = $(`<div id="html_e6a7a4ecbdae79460cab6ef42fcb0591" style="width: 100.0%; height: 100.0%;"><b>Multiple 'caution, balcony can collapse' sprayed on Paris balconies, playing on fear of such an incident during Olympics</b><br>Multiple 'caution, balcony can collapse' sprayed on Paris balconies, playing on fear of such an incident during Olympics</div>`)[0];
+                popup_10816e5b920572eb46b33383e244f03f.setContent(html_e6a7a4ecbdae79460cab6ef42fcb0591);
+            
+        
+
+        marker_7d82f1bd8500b9887e085c453c1e0d50.bindPopup(popup_10816e5b920572eb46b33383e244f03f)
+        ;
+
+        
+    
+    
+            var marker_ccda9e170c1cf3a52bf04596b4f0c0c8 = L.marker(
+                [48.1356625, 16.9511127],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_5ce76358efdb391cbeb84a347fdf0532 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "yellow", "prefix": "glyphicon"}
+            );
+            marker_ccda9e170c1cf3a52bf04596b4f0c0c8.setIcon(icon_5ce76358efdb391cbeb84a347fdf0532);
+        
+    
+        var popup_e813a74937834b809b32fb1e95e6046c = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_6563b57923886280d04de7b85a2b4e53 = $(`<div id="html_6563b57923886280d04de7b85a2b4e53" style="width: 100.0%; height: 100.0%;"><b>1.000+ fake bomb threats emailed to schools, banks in Slovakia</b><br>1.000+ fake bomb threats emailed to schools, banks in Slovakia</div>`)[0];
+                popup_e813a74937834b809b32fb1e95e6046c.setContent(html_6563b57923886280d04de7b85a2b4e53);
+            
+        
+
+        marker_ccda9e170c1cf3a52bf04596b4f0c0c8.bindPopup(popup_e813a74937834b809b32fb1e95e6046c)
+        ;
+
+        
+    
+    
+            var marker_faa3aa1c262af2a91b3d1c18a4425114 = L.marker(
+                [50.121539, 14.502975],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_d35f8d8681775340aa6a10497947ef75 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "yellow", "prefix": "glyphicon"}
+            );
+            marker_faa3aa1c262af2a91b3d1c18a4425114.setIcon(icon_d35f8d8681775340aa6a10497947ef75);
+        
+    
+        var popup_e906b151d1cf1f56754be773b46be43c = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2a417d3edaa0b42ec3230354a87b6ef5 = $(`<div id="html_2a417d3edaa0b42ec3230354a87b6ef5" style="width: 100.0%; height: 100.0%;"><b>Hundreds of schools forced to close due to fake bomb threats per email. Head Czech secret service blames Ru, also for #61</b><br>Hundreds of schools forced to close due to fake bomb threats per email. Head Czech secret service blames Ru, also for #61</div>`)[0];
+                popup_e906b151d1cf1f56754be773b46be43c.setContent(html_2a417d3edaa0b42ec3230354a87b6ef5);
+            
+        
+
+        marker_faa3aa1c262af2a91b3d1c18a4425114.bindPopup(popup_e906b151d1cf1f56754be773b46be43c)
+        ;
+
+        
+    
+    
+            var marker_81319e4568fbf7ccd33ebb0cd46e4582 = L.marker(
+                [52.356856, 21.055007],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_46f5ce5d52e489c87aba6451ba92b3fc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_81319e4568fbf7ccd33ebb0cd46e4582.setIcon(icon_46f5ce5d52e489c87aba6451ba92b3fc);
+        
+    
+        var popup_f1713c9fd900069e122cff7080917bd4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_db5fdfd04365392d9bbbf2e2b162d2f8 = $(`<div id="html_db5fdfd04365392d9bbbf2e2b162d2f8" style="width: 100.0%; height: 100.0%;"><b>Explosive / inflammable parcel ignites in courier truck / storage site near Warsaw. Linked to perpetrators of DHL attacks</b><br>Explosive / inflammable parcel ignites in courier truck / storage site near Warsaw. Linked to perpetrators of DHL attacks</div>`)[0];
+                popup_f1713c9fd900069e122cff7080917bd4.setContent(html_db5fdfd04365392d9bbbf2e2b162d2f8);
+            
+        
+
+        marker_81319e4568fbf7ccd33ebb0cd46e4582.bindPopup(popup_f1713c9fd900069e122cff7080917bd4)
+        ;
+
+        
+    
+    
+            var marker_be81d8883b0232b40083662592f52429 = L.marker(
+                [44.430925, 25.972073],
+                {}
+            ).addTo(map_a2178f736a3c86a1354c08ce86969f63);
+        
+    
+            var icon_bcfa864c25a5f849010c57b1689c076c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_be81d8883b0232b40083662592f52429.setIcon(icon_bcfa864c25a5f849010c57b1689c076c);
+        
+    
+        var popup_05c1df458dd5ae694eca3edd72717dbc = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ea3808af920f94b26e2a8a6a3aaad3a4 = $(`<div id="html_ea3808af920f94b26e2a8a6a3aaad3a4" style="width: 100.0%; height: 100.0%;"><b>Colombian national engaged in sabotage preparations in Romania, targets appear to be economic / infrastructure related</b><br>Colombian national engaged in sabotage preparations in Romania, targets appear to be economic / infrastructure related</div>`)[0];
+                popup_05c1df458dd5ae694eca3edd72717dbc.setContent(html_ea3808af920f94b26e2a8a6a3aaad3a4);
+            
+        
+
+        marker_be81d8883b0232b40083662592f52429.bindPopup(popup_05c1df458dd5ae694eca3edd72717dbc)
+        ;
+
+        
+    
+</script>
+</html>
